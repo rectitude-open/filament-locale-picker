@@ -1,0 +1,28 @@
+services:
+  filament-locale-picker-nginx:
+    container_name: filament-locale-picker-nginx
+    image: ghcr.io/rectitude-open/dev-environments/php/8.3:latest
+    environment:
+      - PROJECT_ROOT=${PROJECT_ROOT}
+      - NGINX_ROOT=${PROJECT_ROOT}/public
+    working_dir: ${PROJECT_ROOT}
+    volumes:
+      - ../:/home/wwwroot/filament-locale-picker
+    ports:
+      - 31391:80
+    stdin_open: true
+    deploy:
+      resources:
+        limits:
+          cpus: "2.0"
+          memory: 2000M
+    networks:
+      filament-locale-picker-net:
+        ipv4_address: 172.16.139.11
+
+networks:
+  filament-locale-picker-net:
+    ipam:
+      driver: default
+      config:
+        - subnet: 172.16.139.0/24

@@ -1,15 +1,17 @@
 <?php
 
-namespace VendorName\Skeleton;
+declare(strict_types=1);
+
+namespace RectitudeOpen\FilamentLocalePicker;
 
 use Filament\Contracts\Plugin;
 use Filament\Panel;
 
-class SkeletonPlugin implements Plugin
+class FilamentLocalePickerPlugin implements Plugin
 {
     public function getId(): string
     {
-        return 'skeleton';
+        return 'filament-locale-picker';
     }
 
     public function register(Panel $panel): void
