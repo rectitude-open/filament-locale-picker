@@ -73,7 +73,7 @@ class FilamentLocalePickerServiceProvider extends PackageServiceProvider
 
         FilamentView::registerRenderHook(
             PanelsRenderHook::GLOBAL_SEARCH_AFTER,
-            fn () => view('filapress-locale-picker::locale-picker-trigger'),
+            fn () => view('filament-locale-picker::locale-picker-trigger'),
         );
 
         // Asset Registration
