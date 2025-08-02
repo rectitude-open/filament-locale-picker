@@ -6,6 +6,7 @@ namespace RectitudeOpen\FilamentLocalePicker;
 
 use Filament\Contracts\Plugin;
 use Filament\Panel;
+use RectitudeOpen\FilamentLocalePicker\Middleware\SetLocale;
 
 class FilamentLocalePickerPlugin implements Plugin
 {
@@ -16,7 +17,9 @@ class FilamentLocalePickerPlugin implements Plugin
 
     public function register(Panel $panel): void
     {
-        //
+        $panel->middleware([
+            SetLocale::class,
+        ]);
     }
 
     public function boot(Panel $panel): void
